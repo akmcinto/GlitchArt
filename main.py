@@ -1,6 +1,7 @@
 from PIL import Image
 import sys, os, re
 from colourify import *
+from decolourify import *
 
 def main(argv):
     fpath, ext = os.path.splitext(argv[0])
@@ -13,18 +14,33 @@ def main(argv):
         s = ""
         if arg == "greyify":
             img, s = greyify(img)
-        if arg == "blueify":
+        elif arg == "blueify":
             img, s = blueify(img)
-        if arg == "redify":
+        elif arg == "redify":
             img, s = redify(img)
-        if arg == "greenify":
+        elif arg == "greenify":
             img, s = greenify(img)
-        if arg == "yellowify":
+        elif arg == "yellowify":
             img, s = yellowify(img)
-        if arg == "magentify":
+        elif arg == "magentify":
             img, s = magentify(img)
-        if arg == "cyanify":
+        elif arg == "cyanify":
             img, s = cyanify(img)
+
+        elif arg == "degreyify":
+            img, s = degreyify(img)
+        elif arg == "deblueify":
+            img, s = deblueify(img)
+        elif arg == "deredify":
+            img, s = deredify(img)
+        elif arg == "degreenify":
+            img, s = degreenify(img)
+        elif arg == "deyellowify":
+            img, s = deyellowify(img)
+        elif arg == "demagentify":
+            img, s = demagentify(img)
+        elif arg == "decyanify":
+            img, s = decyanify(img)
         suffix += "_" + s
 
     img.save(currdir + fname + suffix + ext)
