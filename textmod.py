@@ -11,7 +11,7 @@ import numpy as np
 with open("IMAG2378_dered.jpg", "rb") as imageFile:
     f = imageFile.read()
     b = bytearray(f)
-    m = re.split('a', b)
+    m = re.split('\b', b)
     # random.shuffle(m[-5:])
     tmp = m[-5]
     m[-5] = m[-2]
@@ -21,8 +21,8 @@ with open("IMAG2378_dered.jpg", "rb") as imageFile:
     p = ''
     for x in m:
         p += x
-    # img = Image.frombytes('RGB', (590, 640), str(p))
-    img = Image.open(io.BytesIO(p))
+    img = Image.frombytes('RGB', (590, 640), str(p))
+    # img = Image.open(io.BytesIO(p))
     img.save('tmp.jpg')
 
 
